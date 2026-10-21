@@ -1,0 +1,284 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #edf4ff;
+    color: #26354a;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #2457a6;
+    font-size: 32px;
+    margin: 10px 0 25px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 22px;
+    margin: 8px 0 16px;
+}
+
+.panel {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 25px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px #00000012;
+}
+
+.setting {
+    margin-bottom: 22px;
+}
+
+.setting label,
+.answer-section > label {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 12px;
+    font-family: inherit;
+    font-size: 18px;
+    border: 2px solid #c7d5e8;
+    border-radius: 10px;
+    background: white;
+    color: #26354a;
+}
+
+.hint {
+    color: #65758a;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+button {
+    border: none;
+    border-radius: 12px;
+    padding: 14px 22px;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:focus-visible {
+    outline: 4px solid #ffbf47;
+    outline-offset: 3px;
+}
+
+button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.primary-button {
+    background: #2874d0;
+    color: white;
+}
+
+.primary-button:hover:not(:disabled) {
+    background: #1959a8;
+}
+
+#startButton {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.secondary-button {
+    background: #dce8f8;
+    color: #26354a;
+    padding: 10px 14px;
+    font-size: 15px;
+}
+
+.message {
+    min-height: 24px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.message.success {
+    color: #16813b;
+}
+
+.message.error {
+    color: #c62828;
+}
+
+#game {
+    background: white;
+    padding: 22px;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px #00000012;
+}
+
+.game-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.instruction {
+    text-align: center;
+    font-size: 20px;
+    margin: 12px 0 24px;
+}
+
+.image-section {
+    margin: 15px 0;
+}
+
+.image-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 80px;
+}
+
+.character {
+    width: 125px;
+    height: 125px;
+    padding: 4px;
+    border: 3px solid #d5e2f4;
+    border-radius: 12px;
+    background: #f7faff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: transform 0.15s, border-color 0.15s;
+}
+
+
+.character:hover {
+    transform: scale(1.05);
+    border-color: #4385df;
+}
+
+.character img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: grayscale(1);
+    opacity: 0.25;
+    transition: filter 0.2s, opacity 0.2s;
+    pointer-events: none;
+}
+
+.character.revealed img {
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+.plus-sign {
+    text-align: center;
+    font-size: 42px;
+    font-weight: bold;
+    color: #2874d0;
+    margin: 10px 0;
+}
+
+.result-divider {
+    height: 3px;
+    background: #e5edf8;
+    margin: 25px 0;
+}
+
+.result-row {
+    padding: 10px 0;
+}
+
+.answer-section {
+    max-width: 500px;
+    margin: 30px auto 0;
+    text-align: center;
+}
+
+.answer-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.answer-controls input {
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#nextButton {
+    width: 100%;
+    margin-top: 10px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .panel,
+    #game {
+        padding: 14px;
+    }
+
+	.character {
+		width: 85px;
+		height: 85px;
+		padding: 2px;
+		border-width: 2px;
+	}
+
+
+    .image-row {
+        gap: 5px;
+    }
+
+    .instruction {
+        font-size: 17px;
+    }
+
+    .game-info {
+        flex-wrap: wrap;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}

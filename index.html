@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Παιχνίδι Πρόσθεσης</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+
+        <h1>Παιχνίδι Πρόσθεσης</h1>
+
+        <!-- ΑΡΧΙΚΕΣ ΡΥΘΜΙΣΕΙΣ -->
+        <section id="settings" class="panel">
+
+            <h2>Ρυθμίσεις παιχνιδιού</h2>
+
+            <div class="setting">
+                <label for="characterFolder">
+                    1. Επίλεξε χαρακτήρες
+                </label>
+
+                <select id="characterFolder">
+                    <option value="thomas">Τόμας το Τρενάκι</option>
+                    <option value="toy-story">Toy Story</option>
+                    <option value="animals">Ζώα</option>
+                </select>
+            </div>
+
+            <div class="setting">
+                <label for="maxResult">
+                    2. Μέγιστο αποτέλεσμα πρόσθεσης
+                </label>
+
+                <input
+                    type="number"
+                    id="maxResult"
+                    min="2"
+                    max="100"
+                    value="10"
+                    step="1"
+                >
+
+                <p class="hint">
+                    Γράψε όποιον αριθμό θέλεις, από 2 έως 100.
+                </p>
+            </div>
+
+            <div class="setting">
+                <label for="roundCount">
+                    3. Πόσες προσθέσεις θα παίξει;
+                </label>
+
+                <input
+                    type="number"
+                    id="roundCount"
+                    min="1"
+                    max="100"
+                    value="10"
+                    step="1"
+                >
+            </div>
+
+            <button id="startButton" class="primary-button">
+                Έναρξη παιχνιδιού
+            </button>
+
+            <p id="settingsMessage" class="message" aria-live="polite"></p>
+
+        </section>
+
+        <!-- ΠΕΡΙΟΧΗ ΠΑΙΧΝΙΔΙΟΥ -->
+        <section id="game" hidden>
+
+            <div class="game-info">
+                <span id="roundInfo">Πρόσθεση 1 / 10</span>
+
+                <button id="backButton" class="secondary-button">
+                    Αρχική οθόνη
+                </button>
+            </div>
+
+            <p class="instruction">
+                Κάνε κλικ στις εικόνες για να τις αποκαλύψεις!
+            </p>
+
+            <section class="image-section">
+                <h2>Πρώτη σειρά</h2>
+                <div id="firstRow" class="image-row"></div>
+            </section>
+
+            <div class="plus-sign">+</div>
+
+            <section class="image-section">
+                <h2>Δεύτερη σειρά</h2>
+                <div id="secondRow" class="image-row"></div>
+            </section>
+
+            <div class="result-divider"></div>
+
+            <section class="image-section">
+                <h2>Μέτρησε όλες τις εικόνες!</h2>
+                <div id="resultRow" class="image-row result-row"></div>
+            </section>
+
+            <section class="answer-section">
+
+                <label for="answerInput">
+                    Ποιο είναι το αποτέλεσμα;
+                </label>
+
+                <div class="answer-controls">
+                    <input
+                        type="number"
+                        id="answerInput"
+                        min="0"
+                        max="200"
+                        placeholder="?"
+                        autocomplete="off"
+                    >
+
+                    <button id="checkButton" class="primary-button">
+                        Έλεγχος
+                    </button>
+                </div>
+
+                <p id="feedback" class="message" aria-live="polite"></p>
+
+                <button id="nextButton" class="primary-button" hidden>
+                    Επόμενη πρόσθεση
+                </button>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
