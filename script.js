@@ -27,7 +27,7 @@ const backButton = document.getElementById("backButton");
 const imageFolders = {
     "toy-story": [
         "images/woody.jpg",
-        //"images/thomas/percy.png"
+        "images/rex.webp",
     ],
 
     //"toy-story": [
@@ -174,6 +174,7 @@ startButton.addEventListener("click", function () {
 // ΔΗΜΙΟΥΡΓΙΑ ΝΕΑΣ ΠΡΟΣΘΕΣΗΣ
 // --------------------------------------------------
 
+
 function nextRound() {
     if (currentRound >= totalRounds) {
         finishGame();
@@ -203,22 +204,32 @@ function nextRound() {
     const firstNumber = randomInt(1, correctAnswer - 1);
     const secondNumber = correctAnswer - firstNumber;
 
-    // Επιλογή τυχαίου χαρακτήρα από την κατηγορία
-    const randomImage = imageFiles[
-        randomInt(0, imageFiles.length - 1)
-    ];
+    // Επιλογή δύο διαφορετικών εικόνων
+    const firstImageIndex = randomInt(0, imageFiles.length - 1);
+    let secondImageIndex = firstImageIndex;
 
-    // Πρώτη σειρά
-    addCharacters(firstRow, firstNumber, randomImage);
+    if (imageFiles.length > 1) {
+        while (secondImageIndex === firstImageIndex) {
+            secondImageIndex = randomInt(0, imageFiles.length - 1);
+        }
+    }
 
-    // Δεύτερη σειρά
-    addCharacters(secondRow, secondNumber, randomImage);
+    const firstImage = imageFiles[firstImageIndex];
+    const secondImage = imageFiles[secondImageIndex];
 
-    // Τρίτη σειρά: εικόνες ίσες με το αποτέλεσμα
-    addCharacters(resultRow, correctAnswer, randomImage);
+    // Πρώτη σειρά: πρώτη εικόνα
+    addCharacters(firstRow, firstNumber, firstImage);
+
+    // Δεύτερη σειρά: διαφορετική εικόνα
+    addCharacters(secondRow, secondNumber, secondImage);
+
+    // Τρίτη σειρά: συνδυασμός των δύο εικόνων
+    addCharacters(resultRow, firstNumber, firstImage);
+    addCharacters(resultRow, secondNumber, secondImage);
 
     answerInput.focus();
 }
+
 
 // --------------------------------------------------
 // ΕΛΕΓΧΟΣ ΑΠΑΝΤΗΣΗΣ
