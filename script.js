@@ -35,10 +35,12 @@ const imageFolders = {
         //"images/toy-story/buzz.png"
     //],
 
-    //"animals": [
-      //  "images/animals/dog.png",
-        //"images/animals/cat.png"
-    //]
+    "animals": [
+		"images/animals/dog.avif",
+        "images/animals/cat.webp",
+		"images/animals/parrot.webp",
+		"images/animals/sheep.jfif",
+    ]
 };
 
 // --------------------------------------------------
